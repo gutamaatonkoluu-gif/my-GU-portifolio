@@ -1,0 +1,13 @@
+/* App.css or styles/global.css */
+body {
+  background-color: #382c23; /* A representative dark brown/earthy tone */
+  color: #ffffff; /* Default text color as white */
+  font-family: 'Arial', sans-serif; /* Example font */
+  margin: 0;
+  padding: 0;
+}
+
+/* Set the main app container to span the whole screen if necessary */
+#root, .client {
+    min-height: 100vh;
+}
