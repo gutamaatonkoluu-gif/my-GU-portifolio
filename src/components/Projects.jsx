@@ -1,18 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+// Ensure the image files (ethio ai.png and MP.png) are placed
+// in your project's 'public' directory for these paths to work.
 const projects = [
   {
     title: "AI Data Platform",
     description:
-      "An intelligent data labeling and analytics system built with React and Node.js.",
-    img: "/project1.jpg",
+      "An intelligent data labeling and analytics system built with React and Node.js. (Viewed: Ethio AI screenshot)",
+    // The path you provided is here
+    img: "/ethio ai.png",
   },
   {
     title: "Portfolio Website",
     description:
-      "A modern personal website showcasing skills, projects, and contact form.",
-    img: "/project2.jpg",
+      "A modern personal website showcasing skills, projects, and contact form. (Viewed: Gutema Tonkolu portfolio screenshot)",
+    // The path you provided is here
+    img: "/MP.png",
   },
   {
     title: "Online Clinic System",
@@ -43,8 +47,9 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.2, duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-[#4e342e] rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform"
+            className="bg-[#4e342e] rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
           >
+            {/* This is where the image is rendered */}
             <img
               src={p.img}
               alt={p.title}

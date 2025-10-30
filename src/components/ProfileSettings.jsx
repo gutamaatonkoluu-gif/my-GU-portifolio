@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function ProfileSettings() {
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [preview, setPreview] = useState(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     const storedName = localStorage.getItem("profileName");
@@ -23,10 +24,16 @@ export default function ProfileSettings() {
     reader.readAsDataURL(file);
   };
 
+  const handleRemoveImage = () => {
+    setPreview(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
   const handleSave = () => {
     localStorage.setItem("profileName", name);
     localStorage.setItem("profileBio", bio);
     if (preview) localStorage.setItem("profileImage", preview);
+    else localStorage.removeItem("profileImage");
     alert("✅ Profile updated successfully!");
   };
 
@@ -42,7 +49,7 @@ export default function ProfileSettings() {
         viewport={{ once: true }}
         className="text-3xl font-semibold text-[#f57c00] mb-8"
       >
-        Profile Settings
+        My Profile
       </motion.h2>
 
       <motion.div
@@ -58,11 +65,26 @@ export default function ProfileSettings() {
             alt="Profile"
             className="w-32 h-32 rounded-full border-4 border-[#f57c00] object-cover mb-4"
           />
+          <div className="flex gap-4">
+            <button
+              onClick={() => fileInputRef.current.click()}
+              className="bg-[#f57c00] hover:bg-[#ffa726] text-white px-4 py-2 rounded-lg font-semibold"
+            >
+              Upload
+            </button>
+            <button
+              onClick={handleRemoveImage}
+              className="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-lg font-semibold"
+            >
+              Remove
+            </button>
+          </div>
           <input
+            ref={fileInputRef}
             type="file"
             accept="image/*"
             onChange={handleImageUpload}
-            className="text-[#b0b0b0] text-sm"
+            className="hidden"
           />
         </div>
 

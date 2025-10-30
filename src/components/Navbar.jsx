@@ -13,17 +13,15 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 text-[#f5f5f5]">
-          {["Home", "About", "Skills", "Projects", "Contact", "Profile"].map(
-            (item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="hover:text-[#ffa726] transition-colors"
-              >
-                {item}
-              </a>
-            )
-          )}
+          {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="hover:text-[#ffa726] transition-colors"
+            >
+              {item}
+            </a>
+          ))}
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -38,18 +36,16 @@ export default function Navbar() {
       {/* Mobile Menu Items */}
       {open && (
         <div className="md:hidden bg-[#3e2723] flex flex-col items-center py-4 space-y-4">
-          {["Home", "About", "Skills", "Projects", "Contact", "Profile"].map(
-            (item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-[#f5f5f5] hover:text-[#ffa726]"
-                onClick={() => setOpen(false)}
-              >
-                {item}
-              </a>
-            )
-          )}
+          {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-[#f5f5f5] hover:text-[#ffa726]"
+              onClick={() => setOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
         </div>
       )}
     </nav>

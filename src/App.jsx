@@ -6,7 +6,6 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contacts from "./components/Contacts";
-import ProfileSettings from "./components/ProfileSettings";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -27,7 +26,6 @@ export default function App() {
       <Skills />
       <Projects />
       <Contacts />
-      <ProfileSettings />
       <Footer />
     </div>
   );
